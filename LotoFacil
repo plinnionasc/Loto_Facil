@@ -1,0 +1,75 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LotoFacilGUI {
+    private JFrame frame;
+    private JButton btnApostaNumero, btnApostaLetra, btnApostaParImpar;
+    private JTextField textField;
+
+    public LotoFacilGUI() {
+        frame = new JFrame("LOTOFÁCIL");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setLayout(null);
+
+        btnApostaNumero = new JButton("Apostar de 0 a 100");
+        btnApostaNumero.setBounds(50, 30, 150, 30);
+
+        btnApostaLetra = new JButton("Apostar de A a Z");
+        btnApostaLetra.setBounds(50, 70, 150, 30);
+
+        btnApostaParImpar = new JButton("Apostar Par ou Ímpar");
+        btnApostaParImpar.setBounds(50, 110, 150, 30);
+
+        textField = new JTextField();
+        textField.setBounds(220, 30, 100, 30);
+
+        frame.add(btnApostaNumero);
+        frame.add(btnApostaLetra);
+        frame.add(btnApostaParImpar);
+        frame.add(textField);
+
+        btnApostaNumero.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                apostaNumero();
+            }
+        });
+
+        btnApostaLetra.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                apostaLetra();
+            }
+        });
+
+        btnApostaParImpar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                apostaParImpar();
+            }
+        });
+    }
+
+    public void show() {
+        frame.setVisible(true);
+    }
+
+    private void apostaNumero() {
+        String input = textField.getText();
+        // Adicione aqui o código para processar a aposta de números.
+    }
+
+    private void apostaLetra() {
+        String input = textField.getText();
+        // Adicione aqui o código para processar a aposta de letras.
+    }
+
+    private void apostaParImpar() {
+        String input = textField.getText();
+        // Adicione aqui o código para processar a aposta de par ou ímpar.
+    }
+
+    public static void main(String[] args) {
+        LotoFacilGUI gui = new LotoFacilGUI();
+        gui.show();
+    }
+}
