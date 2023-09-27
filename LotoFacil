@@ -1,75 +1,54 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LotoFacilGUI {
-    private JFrame frame;
-    private JButton btnApostaNumero, btnApostaLetra, btnApostaParImpar;
-    private JTextField textField;
-
-    public LotoFacilGUI() {
-        frame = new JFrame("LOTOFÁCIL");
+public class LotofacilGUI {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Lotofácil");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
-        frame.setLayout(null);
+        frame.setSize(300, 200);
+        frame.setLayout(new FlowLayout());
 
-        btnApostaNumero = new JButton("Apostar de 0 a 100");
-        btnApostaNumero.setBounds(50, 30, 150, 30);
+        JButton apostaNumeroButton = new JButton("Apostar de 0 a 100");
+        JButton apostaLetraButton = new JButton("Apostar de A a Z");
+        JButton apostaParImparButton = new JButton("Apostar Par ou Ímpar");
 
-        btnApostaLetra = new JButton("Apostar de A a Z");
-        btnApostaLetra.setBounds(50, 70, 150, 30);
+        frame.add(apostaNumeroButton);
+        frame.add(apostaLetraButton);
+        frame.add(apostaParImparButton);
 
-        btnApostaParImpar = new JButton("Apostar Par ou Ímpar");
-        btnApostaParImpar.setBounds(50, 110, 150, 30);
-
-        textField = new JTextField();
-        textField.setBounds(220, 30, 100, 30);
-
-        frame.add(btnApostaNumero);
-        frame.add(btnApostaLetra);
-        frame.add(btnApostaParImpar);
-        frame.add(textField);
-
-        btnApostaNumero.addActionListener(new ActionListener() {
+        apostaNumeroButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                apostaNumero();
+                String input = JOptionPane.showInputDialog(null, "Digite um número de 0 a 100:");
+                int numero = Integer.parseInt(input);
+                // Implemente a lógica para processar a aposta com o número escolhido
+                // Exemplo: processarApostaNumero(numero);
+                JOptionPane.showMessageDialog(null, "Você venceu!");
             }
         });
 
-        btnApostaLetra.addActionListener(new ActionListener() {
+        apostaLetraButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                apostaLetra();
+                String input = JOptionPane.showInputDialog(null, "Digite uma letra de A a Z:");
+                char letra = input.toUpperCase().charAt(0);
+                // Implemente a lógica para processar a aposta com a letra escolhida
+                // Exemplo: processarApostaLetra(letra);
+                JOptionPane.showMessageDialog(null, "Você venceu!");
             }
         });
 
-        btnApostaParImpar.addActionListener(new ActionListener() {
+        apostaParImparButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                apostaParImpar();
+                String input = JOptionPane.showInputDialog(null, "Digite P para Par ou I para Ímpar:");
+                char escolha = input.toUpperCase().charAt(0);
+                // Implemente a lógica para processar a aposta de par ou ímpar
+                // Exemplo: processarApostaParImpar(escolha);
+                JOptionPane.showMessageDialog(null, "Você venceu!");
             }
         });
-    }
 
-    public void show() {
         frame.setVisible(true);
     }
-
-    private void apostaNumero() {
-        String input = textField.getText();
-        // Adicione aqui o código para processar a aposta de números.
-    }
-
-    private void apostaLetra() {
-        String input = textField.getText();
-        // Adicione aqui o código para processar a aposta de letras.
-    }
-
-    private void apostaParImpar() {
-        String input = textField.getText();
-        // Adicione aqui o código para processar a aposta de par ou ímpar.
-    }
-
-    public static void main(String[] args) {
-        LotoFacilGUI gui = new LotoFacilGUI();
-        gui.show();
-    }
 }
+
